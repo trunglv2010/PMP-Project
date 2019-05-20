@@ -1,10 +1,17 @@
 <template>
   <section class="container">
-    <div>
+    <div id="app">
       <h3>
         pmp-project
       </h3>
       <PmpList />
+      <div>
+        <ul>
+          <li v-for="name in names">
+            {{name}}
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 </template>
@@ -13,6 +20,10 @@
 import PmpList from '~/components/PmpList.vue'
 
 export default {
+  el: '#app',
+  data:{
+    names:['ABC', 'DEF', 'GHJ']
+  },
   components: {
     PmpList
   }

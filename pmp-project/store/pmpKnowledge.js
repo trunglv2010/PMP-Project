@@ -39,7 +39,7 @@ export default new Vuex.Store({
     },
 
     addToCart(context, product){
-
+        console.log(product);
         if(product.inventory > 0){
 
             const cartItem = context.state.cart.find(item => item.id === product.id)

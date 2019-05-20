@@ -37,7 +37,7 @@ export default {
     computed: {
       products () {
         return store.state.products
-        // return store.getters.availableProducts
+        // return this.$store.getters['pmpKnowledge/availableProducts'];
       }
     },
       created () {
