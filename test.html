@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+    <title>vuejs product app</title>
+</head>
+
+<body>
+
+    <div id = "root" class="container">
+        <coupon @applied="onCouponApplied"></coupon>
+        <h1 v-if="couponApplied"> May da dung</h1>
+        
+
+        <!-- <el-button @click="visible = true">Button</el-button>
+        <el-dialog :visible.sync="visible" title="Hello world">
+            <slot></slot>
+          <p>Try Element</p>
+        </el-dialog> -->
+
+    </div>
+    
+</body>
+</html>
+
+<!-- import JavaScript -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="main.js"></script>
+<script>
+    // var nums = [4, 3, 2, 15];
+    // var result = [];
+    // var target = 17;
+    // var twoSum = function(nums, target) {
+    //     for(var i = 0; i < nums.length; i++){
+    //         const comp = target - nums[i];
+    //         if(nums.indexOf(comp) !== -1 && nums.indexOf(comp) !== i){
+    //             return [i, nums.indexOf(comp)];
+    //         }
+    //     }
+    // }
+    
+    // result = twoSum(nums, target);
+
+    // for(var j = 0; j < result.length;j++){
+    //     console.log(result[j]);
+    // }
+
+    //bai 2:
+ var x = -123;
+    var reverse = function(x) {
+        var stringToArray = Array.from(x.toString());
+        console.log(stringToArray);
+        var result = '';
+        stringToArray = stringToArray.reverse();
+        for(var i = 0; i<stringToArray.length;i++){
+            result +=stringToArray[i];
+        }
+        if(result.substring(0,1) === '0'){
+
+            result = result.substring(1,result.length);
+        }
+        if(result.substring(result.length - 1, result.length) === '-'){
+            result = result.substring(0,result.length - 1);
+            result = "-" + result;
+        }
+        return result;
+    };
+  var result = reverse(x);
+    console.log(result);
+</script>
