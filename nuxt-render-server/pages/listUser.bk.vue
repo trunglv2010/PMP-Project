@@ -32,7 +32,7 @@
             <!--List Form
             :data="users.slice((currentPage-1)*pagesize,currentPage*pagesize)" ref="multipleTable"-->
             <el-table
-            :data="users ? users.slice((currentPage-1)*pagesize,currentPage*pagesize) : null" ref="multipleTable"
+            :data="users.slice((currentPage-1)*pagesize,currentPage*pagesize)" ref="multipleTable"
             style="width: 100%">
             <el-table-column
                 prop="id"
@@ -233,7 +233,7 @@ export default {
   },
   computed: {
     users() {
-          this.total = this.$store.state.user.users ? this.$store.state.user.users.length : 0;
+          this.total = this.$store.state.user.users.length;
           return this.$store.state.user.users;
     },
     user() {

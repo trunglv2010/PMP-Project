@@ -1,10 +1,17 @@
 import axios from "./axios";
+import firebase from '../plugins/firebaseConfig';
 import { error } from "util";
 const URL = '/users';
 
+// export function fetchApi(params = {}){
+//     return axios.get(URL);
+// }
+
 export function fetchApi(params = {}){
-    return axios.get(URL);
+    debugger;
+    return firebase.database.ref('users');
 }
+
 
 export function addApi(params = {}){
     return axios.post(URL, params)
