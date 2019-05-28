@@ -30,6 +30,7 @@ export const actions = {
     //load data
     async getUsers({commit}, data = {}){
         let res = await fetchApi(data);
+        console.log('ssgsg' + res);
         return commit('fetch', {users: res.data});
     },
     //getUser by Id

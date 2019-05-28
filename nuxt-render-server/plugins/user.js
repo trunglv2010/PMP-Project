@@ -8,7 +8,7 @@ const URL = '/users';
 // }
 
 export function fetchApi(params = {}){
-    debugger;
+    // console.log(firebase.database.ref('users'));
     return firebase.database.ref('users');
 }
 
