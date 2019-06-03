@@ -1,5 +1,6 @@
 //import file config connect
 import {fetchApi, addApi, editApi, deleteApi, getApiById, searchApi} from '../plugins/user'
+import {db} from '../plugins/firebaseConfig'
 
 //init data
 export const state = () => ({
@@ -29,9 +30,18 @@ export const mutations = {
 export const actions = {
     //load data
     async getUsers({commit}, data = {}){
-        let res = await fetchApi(data);
-        console.log('ssgsg' + res);
-        return commit('fetch', {users: res.data});
+        // let res = await fetchApi(data);
+        let users = [];
+        db.collection('users').onSnapshot((snapshot) => {
+            users = [];
+            snapshot.forEach((doc) => {
+              users.push({id:doc.id, username: doc.data().username});
+              console.log(users);
+            })
+        });
+        // console.log('ssgsg' + res);
+        // console.log(users);
+        return commit('fetch', {users: users});
     },
     //getUser by Id
     async getUserById({commit}, data = {}){

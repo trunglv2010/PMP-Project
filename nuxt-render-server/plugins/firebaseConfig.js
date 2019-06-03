@@ -2,16 +2,16 @@ import firebase from 'firebase'
 
 // Initialize Firebase
 const config = {
-  apiKey: 'AIzaSyD4-q9v7Z2KvtsIjWKlxbqx4WaWK9kFv9s',
-  authDomain: 'vueadmintemplate2.firebaseapp.com',
-  databaseURL: 'https://vueadmintemplate2.firebaseio.com',
-  projectId: 'vueadmintemplate2',
-  storageBucket: 'vueadmintemplate2.appspot.com',
-  messagingSenderId: '320106340910',
-  appId: '1:320106340910:web:66609e5fb9074bf3'
+  apiKey: "AIzaSyBf-WOkCsP9Dqgi8qcJucLgX1f2WwGoUpM",
+  authDomain: "vuejs-firebase-01-5a44c.firebaseapp.com",
+  databaseURL: "https://vuejs-firebase-01-5a44c.firebaseio.com",
+  projectId: "vuejs-firebase-01-5a44c",
+  storageBucket: "",
+  messagingSenderId: "216486478247",
+  appId: "1:216486478247:web:dd3a1ca60402549e"
 }
-firebase.initializeApp(config)
+firebase.initializeApp(config);
 
-export default {
-  database: firebase.database()
-}
+// export const db = firebase.firestore();
+
+export const db = firebase.database();
