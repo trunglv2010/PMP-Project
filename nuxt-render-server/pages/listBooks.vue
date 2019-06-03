@@ -33,13 +33,14 @@
     </div>
 </template>
 <script>
-import Vue from 'vue';
-import {rtdbPlugin} from 'vuefire';
-
-Vue.use(rtdbPlugin);
-
 import {db} from '../plugins/firebaseConfig';
+let booksRef = db.ref('books');
 
+// db.ref('books').once('value', snapshot => {
+//     bookRef = snapshot.val();
+//     console.log(bookRef);
+// });
+console.log(booksRef);
 export default {
     data(){
         return {
@@ -50,8 +51,7 @@ export default {
     //     books: db.collection('books')
     // }
     firebase: {
-        books: db.ref('books'),
-        
+        books: booksRef
     }
 }
 </script>
