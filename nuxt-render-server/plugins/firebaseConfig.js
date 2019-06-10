@@ -1,3 +1,4 @@
+
 import firebase from 'firebase'
 
 // Initialize Firebase
@@ -15,3 +16,4 @@ firebase.initializeApp(config);
 // export const db = firebase.firestore();
 
 export const db = firebase.database();
+export const booksRef = db.ref('books');

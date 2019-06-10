@@ -33,25 +33,25 @@
     </div>
 </template>
 <script>
-import {db} from '../plugins/firebaseConfig';
-let booksRef = db.ref('books');
+import {db, booksRef} from '../plugins/firebaseConfig';
 
-// db.ref('books').once('value', snapshot => {
-//     bookRef = snapshot.val();
-//     console.log(bookRef);
-// });
-console.log(booksRef);
+console.log("sgssgsg"+ booksRef);
 export default {
-    data(){
-        return {
-            books: []
-        }
-    },
-    // firestore: {
-    //     books: db.collection('books')
-    // }
+    name:'test',
     firebase: {
-        books: booksRef
+            books: booksRef
+    },
+    data() {
+        return {
+            newBook: {
+                title: '',
+                author: '',
+                url: ''    
+            }
+        }
     }
+    // firebase: {
+    //     books: booksRef
+    // }
 }
 </script>
