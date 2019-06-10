@@ -11,6 +11,7 @@
     </el-aside>
     <el-container>
       <el-main>
+        <webToolBar/>
         <h1>Results: {{$route.params.id}}</h1>
         <div v-if="albums">
             <el-row>
@@ -44,13 +45,15 @@
 import webHeader from '~/components/header.vue';
 import webNav from '~/components/navigate.vue';
 import webFooter from '~/components/footer.vue';
+import webToolBar from '~/components/Toolbar';
 import axios from 'axios';
 
 export default {
     components: {
         webHeader,
         webNav,
-        webFooter
+        webFooter,
+        webToolBar
     },
     
     async fetch({store, params}){
