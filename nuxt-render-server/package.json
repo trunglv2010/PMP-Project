@@ -16,6 +16,7 @@
     "cross-env": "^5.2.0",
     "element-ui": "^2.4.11",
     "firebase": "^6.1.0",
+    "fs": "0.0.1-security",
     "nuxt": "^2.4.0",
     "vu": "0.0.0",
     "vuefire": "^2.0.0-alpha.24",

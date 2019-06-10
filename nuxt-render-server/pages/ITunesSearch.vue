@@ -11,8 +11,9 @@
     </el-aside>
     <el-container>
       <el-main>
+          <webToolBar/>
           <el-form class="demo-form-inline">
-            <el-form-item label="Search iTunes">
+            <el-form-item label="Search Artist Name" @submit="onSubmit">
                 <el-input v-model="search" placeholder="Enter Artist Name" autofocus="true" ref="search"></el-input>
             </el-form-item>
             <el-form-item>
@@ -33,12 +34,14 @@
 import webHeader from '../components/header.vue';
 import webNav from '../components/navigate.vue';
 import webFooter from '../components/footer.vue';
+import webToolBar from '../components/Toolbar';
 
 export default {
     components: {
         webHeader,
         webNav,
-        webFooter
+        webFooter,
+        webToolBar
     },
     data() {
         return {
@@ -48,6 +51,7 @@ export default {
     methods: {
         onSubmit(){
             // alert('test');
+            console.log('1');
             this.$router.push(`results/${this.search}`);
         }
     }

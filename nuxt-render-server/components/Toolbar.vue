@@ -1,14 +1,13 @@
 <template>
-    <el-progress :text-inside="true" :stroke-width="24" :percentage="100" status="success"></el-progress>
+    <el-row>
+    <el-col :span="24"><div class="toolbar">iTunes Search</div></el-col>
+    </el-row>
 </template>
-<script>
-</script>
-<style scoped>
-.title {
-  text-decoration: none !important;
-}
-.title:visited{
-  color: white;
-}
-
+<style>
+  .toolbar {
+    font-size: 26px;
+    color: white;
+    text-align: center;
+    background-color: #409EFF;
+  }
 </style>

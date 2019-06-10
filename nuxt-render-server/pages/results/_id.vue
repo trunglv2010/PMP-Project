@@ -12,23 +12,24 @@
     <el-container>
       <el-main>
         <h1>Results: {{$route.params.id}}</h1>
-        <div v-if="albumData">
-            <div v-for="(album, index) in albumData">
-            <div>
-                <div>
-                    <div class="headline">{{album.title}}</div>
-                    <div>{{album.artistName}}</div>
-                </div>
-                <div>
+        <div v-if="albums">
+            <el-row>
+                <el-col :span="8" v-for="(album, index) in albums" :key="index">
+                    <el-card :body-style="{ padding: '0px' }">
+                    <a :href="album.artistViewUrl" target="_blank">
                     <el-image
                     style="width: 100px; height: 100px"
-                    :src="album.image"
-                    :fit="fit"></el-image>
-                </div>
-            </div>
-            </div>
+                    :src="album.artworkUrl60"></el-image>
+                    </a>
+                    <span>{{album.title}}</span>
+                    <span>{{album.collectionCensoredName}}</span>
+                    <div class="bottom clearfix">
+                    <time class="time">{{album.artistName}}</time>
+                    </div>
+                    </el-card>
+                </el-col>
+            </el-row>   
         </div>
-        
     </el-main>
       <el-footer>
 
@@ -51,24 +52,52 @@ export default {
         webNav,
         webFooter
     },
-    asyncData({params}){
-        return axios.get(`https://itunes.apple.com/search?term=${params.id}&entity=album`)
-        .then((response) => {
-            console.log(response.data.results);
-            return {albumData: response.data.results};
-        })
-    }
-    ,
-    data() {
-        return {
-            search: ''
-        }
+    
+    async fetch({store, params}){
+        console.log('2');
+        console.log(params.id);
+        await store.dispatch("albums/getAlbums", params.id);
+        // return axios.get(`https://itunes.apple.com/search?term=${params.id}&entity=album`)
+        // .then((response) => {
+        //     console.log(response.data.results);
+        //     return {albumData: response.data.results}
+        // });
     },
-    methods: {
-        onSubmit(){
-            // alert('test');
-            this.$router.push(`results/${this.search}`);
+    computed: {
+        albums(){
+            return this.$store.state.albums.albums;
         }
     }
 }
 </script>
+<style>
+  .time {
+    font-size: 13px;
+    color: #999;
+  }
+  
+  .bottom {
+    margin-top: 13px;
+    line-height: 12px;
+  }
+
+  .button {
+    padding: 0;
+    float: right;
+  }
+
+  .image {
+    width: 100%;
+    display: block;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+      display: table;
+      content: "";
+  }
+  
+  .clearfix:after {
+      clear: both
+  }
+</style>
